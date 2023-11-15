@@ -1,18 +1,19 @@
 select
-    t.name as tablename,
-    s.name as schemaname,
+    s.name as schema_name,
+    t.name as table_name,
     p.rows,
     cast(
         round(((sum(a.total_pages) * 8) / 1024.00), 2) as numeric(36, 2)
-    ) as totalspacemb,
+    ) as total_space_mb,
     cast(
         round(((sum(a.used_pages) * 8) / 1024.00), 2) as numeric(36, 2)
-    ) as usedspacemb,
+    ) as used_space_mb,
     cast(
         round(
             ((sum(a.total_pages) - sum(a.used_pages)) * 8) / 1024.00, 2
         ) as numeric(36, 2)
-    ) as unusedspacemb
+    ) as unused_space_mb,
+    db_name() as database_name
 from
     sys.tables as t
 inner join
@@ -30,4 +31,7 @@ where
 group by
     t.name, s.name, p.rows
 order by
-    totalspacemb desc, t.name asc;
+    database_name asc,
+    schema_name asc,
+    total_space_mb desc,
+    t.name asc;
