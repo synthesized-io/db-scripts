@@ -1,3 +1,4 @@
+-- Add schema name
 with
 refs as (
     select

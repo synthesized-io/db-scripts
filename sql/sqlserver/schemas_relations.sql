@@ -1,3 +1,4 @@
+-- Add tables count, size per schema
 select
     s.name as schema_name,
     db_name() as database_name,

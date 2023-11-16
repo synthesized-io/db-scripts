@@ -1,3 +1,4 @@
+-- TODO indexes size
 select
     t.table_name,
     t.schema_name,
