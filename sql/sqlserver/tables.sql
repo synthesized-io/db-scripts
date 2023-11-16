@@ -8,10 +8,13 @@ select
     t.in_row_reserved_page_count / 1024 / 1024 as in_row_reserved_gb,
     t.in_row_used_page_count / 1024 / 1024 as in_row_used_gb,
     t.lob_used_page_count / 1024 / 1024 as lob_used_gb,
-    t.lob_reserved_page_count / 1024 / 1024 as lob_reserved_gb
+    t.lob_reserved_page_count / 1024 / 1024 as lob_reserved_gb,
+    (select count(*) from sys.columns as c where c.object_id = t.table_id
+    ) as columns_count
 from (
     select
         t.name as table_name,
+        t.object_id as table_id,
         s.name as schema_name,
         p.row_count as row_counts,
         sum(p.in_row_reserved_page_count) * 8
@@ -34,7 +37,7 @@ from (
         and t.is_ms_shipped = 0
         and i.object_id > 255
     group by
-        t.name, s.name, p.row_count
+        t.name, t.object_id, s.name, p.row_count
 ) as t
 order by
     t.table_name;
