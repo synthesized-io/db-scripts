@@ -19,7 +19,7 @@ docker run -it --net=host \
 
 ```shell
 /opt/mssql-tools18/bin/sqlcmd -C -H ${HOST_NAME} -d ${DATABASE_NAME} -U ${USERNAME} -P ${PASSWORD} \
-    -i ${SCRIPT_NAME} \
-    -o ./output/${SCRIPT_NAME} \
+    -i init_script.sql,${SCRIPT_NAME} \
+    -o ./output/${SCRIPT_NAME}.csv \
     -W -w 1024 -s "," -h-1
 ```
