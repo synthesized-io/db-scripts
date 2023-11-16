@@ -10,17 +10,6 @@ export SCRIPT_NAME="cyclic_table_references.sql"
 ```
 
 ```shell
-scripts=("columns_data_types.sql" "constraints.sql" "cyclic_table_references.sql" "databases.sql" "pii_columns.sql" "schemas_relations.sql" "tables.sql")
-
-
-
-
-```
-
-
-
-
-```shell
 docker run -it --net=host \
     -v ${PWD}:/sql \
     mcr.microsoft.com/mssql-tools \
@@ -29,7 +18,10 @@ docker run -it --net=host \
 ```
 
 ```shell
+scripts=("columns_data_types.sql" "constraints.sql" "cyclic_table_references.sql" "databases.sql" "pii_columns.sql" "schemas_relations.sql" "tables.sql")
+```
 
+```shell
 for current_script in ${scripts[@]}; do
     export SCRIPT_NAME=$current_script
     /opt/mssql-tools18/bin/sqlcmd -C -H ${HOST_NAME} -d ${DATABASE_NAME} -U ${USERNAME} -P ${PASSWORD} \
@@ -37,6 +29,4 @@ for current_script in ${scripts[@]}; do
         -o ./output/${SCRIPT_NAME}.csv \
         -W -w 32768 -s ","
 done
-
-
 ```
