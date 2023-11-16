@@ -11,15 +11,15 @@ export SCRIPT_NAME="cyclic_table_references.sql"
 
 ```shell
 docker run -it --net=host \
-    -v ${PWD}/sql:/sql \
+    -v ${PWD}:/sql \
     mcr.microsoft.com/mssql-tools \
     bash -c \
-    "/opt/mssql-tools/bin/sqlcmd -S ${HOST_NAME} -U ${USERNAME} -P ${PASSWORD} -d ${DATABASE_NAME} -i ./sql/sqlserver/${SCRIPT_NAME}"
+    "/opt/mssql-tools/bin/sqlcmd -S ${HOST_NAME} -U ${USERNAME} -P ${PASSWORD} -d ${DATABASE_NAME} -i /sql/${SCRIPT_NAME}"
 ```
 
 ```shell
 /opt/mssql-tools18/bin/sqlcmd -C -H ${HOST_NAME} -d ${DATABASE_NAME} -U ${USERNAME} -P ${PASSWORD} \
     -i init_script.sql,${SCRIPT_NAME} \
     -o ./output/${SCRIPT_NAME}.csv \
-    -W -w 1024 -s "," -h-1
+    -W -w 1024 -s ","
 ```
