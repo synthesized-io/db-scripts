@@ -1,12 +1,13 @@
--- Add schema name
 with
 refs as (
     select
-        p.name as id,
-        r.name as pid
+        ps.name + '.' + p.name as id,
+        rs.name + '.' + r.name as pid
     from sys.foreign_keys as f
     inner join sys.objects as p on p.object_id = f.parent_object_id
+    inner join sys.schemas as ps on ps.schema_id = p.schema_id
     inner join sys.objects as r on r.object_id = f.referenced_object_id
+    inner join sys.schemas as rs on rs.schema_id = r.schema_id
 ),
 
 findroot as (
