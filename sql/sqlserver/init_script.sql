@@ -1,1 +1,1 @@
-SET NOCOUNT ON;
+set nocount on;
