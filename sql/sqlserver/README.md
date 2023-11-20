@@ -1,8 +1,11 @@
+# MS SQL Server scripts
+
+
 ```shell
 export DB_NAME=sakila
 export DB_HOST=127.0.0.1,1433
 export DB_USER=sa
-export DB_PASSWORD=Secret_DB_password_1
+export DB_PASSWORD=Secret_password_1
 
 export SCRIPT_NAME="tables.sql"
 export SCRIPT_NAME="databases.sql"
