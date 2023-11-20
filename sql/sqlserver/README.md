@@ -1,8 +1,17 @@
 # MS SQL Server scripts
 
+Retrieve the files:
+
 ```shell
 git clone https://github.com/synthesized-io/db-scripts
 cd sql/sqlserver
+```
+
+Minimal permissions for a database user:
+
+```sql
+grant view any definition to [USERNAME];
+grant view server state to [USERNAME];
 ```
 
 
