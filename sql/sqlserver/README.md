@@ -53,15 +53,5 @@ sqlcmd -C -S ${DB_HOST} -d ${DB_NAME} -U ${DB_USER} -P ${DB_PASSWORD} -i ${SCRIP
 ### Run all scripts in CSV output format
 
 ```shell
-scripts=("columns_data_types.sql" "constraints.sql" "cyclic_table_references.sql" "databases.sql" "pii_columns.sql" "schemas_relations.sql" "tables.sql" "schemas.sql")
-```
-
-```shell
-for current_script in ${scripts[@]}; do
-    export SCRIPT_NAME=$current_script
-    sqlcmd -C -S ${DB_HOST} -d ${DB_NAME} -U ${DB_USER} -P ${DB_PASSWORD} \
-        -i init_script.sql,${SCRIPT_NAME} \
-        -o ./output/${SCRIPT_NAME}.csv \
-        -W -w 32768 -s ","
-done
+sh ./run.sh
 ```
