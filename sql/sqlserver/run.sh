@@ -8,8 +8,8 @@ mkdir -p ./output/${DB_NAME}
 
 for current_script in ${scripts[@]}; do
     export SCRIPT_NAME=$current_script
-    sqlcmd -C -S ${DB_HOST} -d ${DB_NAME} -U ${DB_USER} -P ${DB_PASSWORD} \
+    echo "Execting $current_script ..."
+    /opt/mssql-tools18/bin/sqlcmd -C -S ${DB_HOST} -d ${DB_NAME} -U ${DB_USER} -P ${DB_PASSWORD} \
         -i init_script.sql,${SCRIPT_NAME} \
-        -o ./output/${DB_NAME}/${SCRIPT_NAME}.csv \
-        -W -w 32768 -s ","
+        -W -w 32768 -s "," 1> ./output/${DB_NAME}/${SCRIPT_NAME}.csv
 done
