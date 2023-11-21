@@ -2,7 +2,7 @@ export DB_NAME=sakila
 export DB_HOST=127.0.0.1,1433
 export DB_USER=test_user_2
 export DB_PASSWORD=Uvxs245!
-export scripts=("columns_data_types.sql" "constraints.sql" "cyclic_table_references.sql" "databases.sql" "pii_columns.sql" "schemas_relations.sql" "tables.sql" "schemas.sql")
+export scripts=("columns_data_types.sql" "constraints.sql" "cyclic_table_references.sql" "databases.sql" "pii_columns.sql" "schemas_relations.sql" "tables.sql" "schemas.sql", "user_permissions.sql")
 
 mkdir -p ./output/${DB_NAME}
 
