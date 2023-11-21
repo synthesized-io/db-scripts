@@ -1,4 +1,3 @@
--- TODO indexes size
 select
     t.table_name,
     t.schema_name,
@@ -10,6 +9,7 @@ select
     t.in_row_used_page_count / 1024 / 1024 as in_row_used_gb,
     t.lob_used_page_count / 1024 / 1024 as lob_used_gb,
     t.lob_reserved_page_count / 1024 / 1024 as lob_reserved_gb,
+    total_space_heap_kb / 1024 / 1024 as total_space_heap_gb,
     (select count(*) from sys.columns as c where c.object_id = t.table_id
     ) as columns_count
 from (
@@ -20,6 +20,24 @@ from (
         p.row_count as row_counts,
         sum(p.in_row_reserved_page_count) * 8
         + sum(p.lob_reserved_page_count) * 8 as total_space_kb,
+        sum(
+            case
+                when
+                    i.type_desc = 'HEAP'
+                    then p.in_row_reserved_page_count
+                else 0
+            end
+        )
+        * 8
+        + sum(
+            case
+                when
+                    i.type_desc = 'HEAP'
+                    then p.lob_reserved_page_count
+                else 0
+            end
+        )
+        * 8 as total_space_heap_kb,
         sum(p.in_row_used_page_count) * 8
         + sum(lob_used_page_count) * 8 as used_space_kb,
         sum(p.in_row_reserved_page_count) * 8 as in_row_reserved_page_count,
