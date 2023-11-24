@@ -36,7 +36,7 @@ inner join
     tables as pt
     on
         pt.object_id = fk.parent_object_id
-        and pt.child_tables_count = 1
+        and pt.parent_tables_count = 1
 inner join
     tables as rt
     on rt.object_id = fk.referenced_object_id and rt.parent_tables_count = 0
