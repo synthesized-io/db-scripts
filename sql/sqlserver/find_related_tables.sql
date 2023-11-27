@@ -29,8 +29,10 @@ with tables as (
 select
     rt.name as parent_table_name,
     rt.row_count as parent_table_row_count,
+    rt.child_tables_count as parent_child_tables_count,
     pt.name as child_table_name,
-    pt.row_count as parent_table_row_count
+    pt.row_count as child_table_row_count,
+    pt.child_tables_count as child_child_tables_count
 from sys.foreign_keys as fk
 inner join
     tables as pt
