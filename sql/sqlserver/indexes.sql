@@ -1,5 +1,4 @@
 select
-    schema_name(t.schema_id) as schema_name,
     t.name,
     i.name,
     i.is_disabled,
@@ -12,8 +11,9 @@ select
     i.is_hypothetical,
     i.auto_created,
     i.has_filter,
-    i.filter_definition
+    i.filter_definition,
+    schema_name(t.schema_id) as schema_name
 from sys.indexes as i
 inner join sys.tables as t on t.object_id = i.object_id and t.is_ms_shipped != 1
 where i.type > 0
-order by 1, 2, 3;
+order by schema_name(t.schema_id), t.name, i.name;
