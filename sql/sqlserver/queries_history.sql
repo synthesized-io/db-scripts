@@ -1,3 +1,5 @@
+set nocount on;
+
 select stats.last_execution_time,
   stats.execution_count,
   stats.total_rows,

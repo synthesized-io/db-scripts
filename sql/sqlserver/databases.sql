@@ -1,3 +1,5 @@
+set nocount on;
+
 with db_files as (
     select
         cast(sum(size) * 8. / 1024 / 1024 as DECIMAL(8, 2)) as total_size_gb,

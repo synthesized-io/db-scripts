@@ -1,3 +1,5 @@
+set nocount on;
+
 with
 refs as (
     select

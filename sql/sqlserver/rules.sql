@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     name as rule_name,
     syscomments.text as rule_definition

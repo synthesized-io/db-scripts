@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     t.name,
     i.name,

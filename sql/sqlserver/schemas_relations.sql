@@ -1,3 +1,5 @@
+set nocount on;
+
 -- Add tables count, size per schema
 select
     s.name as schema_name,

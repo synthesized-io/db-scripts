@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     type,
     type_desc,

@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     t.schema_name,
     t.table_name,

@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     i.type_desc,
     i.is_unique,
