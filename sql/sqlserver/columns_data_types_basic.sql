@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     c.type_name,
     count(*) as columns_count

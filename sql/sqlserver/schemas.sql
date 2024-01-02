@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     s.name as schema_name,
     count(*) as tables_count

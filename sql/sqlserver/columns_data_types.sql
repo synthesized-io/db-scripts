@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     t.name,
     t.is_user_defined,

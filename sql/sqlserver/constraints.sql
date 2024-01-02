@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     t.name as table_name,
     col.name as column_name,

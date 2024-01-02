@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     entity_name,
     subentity_name,

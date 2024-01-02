@@ -1,3 +1,5 @@
+set nocount on;
+
 with tables as (
     select
         t.name,

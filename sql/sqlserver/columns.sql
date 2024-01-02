@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     schema_name(tab.schema_id) as schema_name,
     tab.name as table_name,

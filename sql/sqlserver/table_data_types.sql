@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     tt.name,
     tt.is_user_defined,

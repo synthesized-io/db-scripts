@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     u.name as user_type,
     s.name as base_type,

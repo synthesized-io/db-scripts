@@ -1,3 +1,5 @@
+set nocount on;
+
 select
     schema_name(fk.schema_id) as schema_name,
     object_name(c.object_id) as child_table_name,

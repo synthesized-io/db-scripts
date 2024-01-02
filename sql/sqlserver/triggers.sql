@@ -1,3 +1,5 @@
+set nocount on;
+
 SELECT
    db_name() as database_name,
    isnull( s.name, '' ) as schema_name,
