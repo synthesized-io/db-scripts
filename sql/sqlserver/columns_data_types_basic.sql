@@ -13,4 +13,4 @@ from (
     where s.name not in ('sys')
 ) as c
 group by c.type_name
-order by 2 desc, 1 asc;
+order by columns_count desc, c.type_name asc;
