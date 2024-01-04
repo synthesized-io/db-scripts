@@ -50,8 +50,10 @@ sqlcmd -C -S ${DB_HOST} -d ${DB_NAME} -U ${DB_USER} -P ${DB_PASSWORD} -i ${SCRIP
 ```
 
 
-### Run all scripts in CSV output format
+### Run all scripts with CSV output format using a Docker image
 
+Update the `run_with_docker.sh` script with your database connection options before running it:
 ```shell
-sh ./run.sh
+sh ./run_with_docker.sh
 ```
+You will find the resulting CSV files in the `output` folder.
