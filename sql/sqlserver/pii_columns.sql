@@ -31,4 +31,4 @@ where (
     or c.name like '%ssn%'
     or c.name like '%gender%'
 )
-order by 1, 2, 3;
+order by t.schema_name, table_name, column_name;
