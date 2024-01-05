@@ -1,8 +1,6 @@
-set nocount on;
-
 select
-    t.name,
-    i.name,
+    t.name as table_name,
+    i.name as index_name,
     i.is_disabled,
     i.auto_created,
     i.type,
@@ -11,7 +9,6 @@ select
     i.is_unique_constraint,
     i.is_primary_key,
     i.is_hypothetical,
-    i.auto_created,
     i.has_filter,
     i.filter_definition,
     schema_name(t.schema_id) as schema_name
