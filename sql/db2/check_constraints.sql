@@ -13,4 +13,5 @@ join syscat.tabconst tab on tab.constname = con.constname
         and tab.tabschema = con.tabschema 
         and tab.tabname = con.tabname
 where con.tabschema not like 'SYS%'
-order by con.constname
+order by con.tabschema, con.tabname, con.constname
+
