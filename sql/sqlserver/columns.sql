@@ -9,7 +9,8 @@ select
     c.max_length,
     c.precision,
     c.scale,
-    c.is_nullable
+    c.is_nullable,
+    c.is_identity
 from sys.columns as c
 inner join
     sys.tables as tab
