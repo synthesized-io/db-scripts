@@ -5,14 +5,14 @@ select
     t.table_name,
     t.row_counts,
     t.partition_scheme,
-    t.total_space_kb / 1024 / 1024 as total_space_gb,
-    total_space_heap_kb / 1024 / 1024 as total_space_heap_gb,
-    t.used_space_kb / 1024 / 1024 as used_space_gb,
-    (t.total_space_kb - t.used_space_kb) / 1024 / 1024 as unused_space_gb,
-    t.in_row_reserved_page_count / 1024 / 1024 as in_row_reserved_gb,
-    t.in_row_used_page_count / 1024 / 1024 as in_row_used_gb,
-    t.lob_used_page_count / 1024 / 1024 as lob_used_gb,
-    t.lob_reserved_page_count / 1024 / 1024 as lob_reserved_gb,
+    t.total_space_kb / 1024 as total_space_mb,
+    total_space_heap_kb / 1024 as total_space_heap_mb,
+    t.used_space_kb / 1024 as used_space_mb,
+    (t.total_space_kb - t.used_space_kb) / 1024 as unused_space_mb,
+    t.in_row_reserved_page_count / 1024 as in_row_reserved_mb,
+    t.in_row_used_page_count / 1024 as in_row_used_mb,
+    t.lob_used_page_count / 1024 as lob_used_mb,
+    t.lob_reserved_page_count / 1024 as lob_reserved_mb,
     (select count(*) from sys.columns as c where c.object_id = t.table_id
     ) as columns_count
 from (
