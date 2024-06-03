@@ -10,7 +10,9 @@ select
     c.precision,
     c.scale,
     c.is_nullable,
-    c.is_identity
+    c.is_identity,
+    c.is_sparse,
+    c.is_column_set
 from sys.columns as c
 inner join
     sys.tables as tab
